@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroSmart Organic | Smart Farming</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .lang-switch { margin-right: 15px; }
+        .lang-switch select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid var(--primary);
+            background: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-seedling"></i> <span data-i18n="footer_brand">AgroSmart Organic</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#products" data-i18n="nav_products">Products</a></li>
+                <li><a href="#crop-guide" data-i18n="nav_guide">Crop Guide</a></li>
+                <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="lang-switch">
+                    <select id="langSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="mr">मराठी</option>
+                    </select>
+                </div>
+                <div class="cart-icon" onclick="openOrdersModal()" title="My Orders" style="margin-right: -10px;">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <div class="cart-icon" onclick="openCart()" title="Basket">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </div>
+            </div>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content fade-in-up">
+            <h1 data-i18n="hero_title">Smart Farming with <span>Organic Power</span></h1>
+            <p data-i18n="hero_desc">Empower your farming with nature's best. Discover organic fertilizers and let our AI smartly guide your
+                crops to a greener future.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary btn-animate" data-i18n="btn_buy">Buy Fertilizer</a>
+                <a href="#" class="btn btn-secondary btn-animate" onclick="openAIChat(event)" data-i18n="btn_advice">Get AI Advice <i
+                        class="fa-solid fa-robot"></i></a>
+            </div>
+        </div>
+        <div class="wave-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,151.71,130.4,226.79,109.83,261.21,100.41,292.5,82.5,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products container section-padding">
+        <div class="section-header text-center fade-in-up">
+            <h2 data-i18n="prod_title">Organic Fertilizers</h2>
+            <p data-i18n="prod_desc">Nourish your soil naturally with our premium selections.</p>
+            <div class="underline"></div>
+        </div>
+        <div class="product-grid" id="productGrid">
+            <!-- Products injected by JS -->
+        </div>
+    </section>
+
+    <!-- Crop Guide Section -->
+    <section id="crop-guide" class="crop-guide section-padding">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 data-i18n="guide_title">Crop Guide</h2>
+                <p data-i18n="guide_desc">Tailored organic solutions for optimal yield.</p>
+                <div class="underline mx-auto"></div>
+            </div>
+
+            <div class="guide-grid mt-4">
+                <div class="guide-card fade-in-up">
+                    <div class="guide-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h3 data-i18n="guide_sugarcane">Sugarcane</h3>
+                    <p data-i18n="guide_sugarcane_desc">Requires consistent nitrogen. <strong>Premium Vermicompost</strong> boosts cane thickness and yield.</p>
+                    <ul class="guide-details">
+                        <li><i class="fa-solid fa-cloud-sun"></i> <strong data-i18n="label_season">Season</strong>: <span data-i18n="sugar_season">All Year</span></li>
+                        <li><i class="fa-solid fa-droplet"></i> <strong data-i18n="label_water">Water</strong>: <span data-i18n="sugar_water">High</span></li>
+                        <li><i class="fa-solid fa-flask"></i> <strong data-i18n="label_fert">Fertilizer</strong>: <span data-i18n="sugar_fert">~150 kg/Acre</span></li>
+                        <li><i class="fa-solid fa-calendar-days"></i> <strong data-i18n="label_growth">Growth</strong>: <span data-i18n="sugar_growth">12-18 Months</span></li>
+                    </ul>
+                </div>
+                <div class="guide-card fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="guide-icon"><i class="fa-solid fa-cloud"></i></div>
+                    <h3 data-i18n="guide_cotton">Cotton</h3>
+                    <p data-i18n="guide_cotton_desc">Prone to pests. <strong>Pure Neem Cake</strong> provides essential nutrients while keeping soil pests away.</p>
+                    <ul class="guide-details">
+                        <li><i class="fa-solid fa-cloud-sun"></i> <strong data-i18n="label_season">Season</strong>: <span data-i18n="cotton_season">Kharif</span></li>
+                        <li><i class="fa-solid fa-droplet"></i> <strong data-i18n="label_water">Water</strong>: <span data-i18n="cotton_water">Medium</span></li>
+                        <li><i class="fa-solid fa-flask"></i> <strong data-i18n="label_fert">Fertilizer</strong>: <span data-i18n="cotton_fert">~50 kg/Acre</span></li>
+                        <li><i class="fa-solid fa-calendar-days"></i> <strong data-i18n="label_growth">Growth</strong>: <span data-i18n="cotton_growth">5-6 Months</span></li>
+                    </ul>
+                </div>
+                <div class="guide-card fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="guide-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3 data-i18n="guide_onion">Onion & Garlic</h3>
+                    <p data-i18n="guide_onion_desc"><strong>Bone Meal Powder</strong> provides the essential phosphorus needed for strong bulb development.</p>
+                    <ul class="guide-details">
+                        <li><i class="fa-solid fa-cloud-sun"></i> <strong data-i18n="label_season">Season</strong>: <span data-i18n="onion_season">Rabi & Kharif</span></li>
+                        <li><i class="fa-solid fa-droplet"></i> <strong data-i18n="label_water">Water</strong>: <span data-i18n="onion_water">Medium</span></li>
+                        <li><i class="fa-solid fa-flask"></i> <strong data-i18n="label_fert">Fertilizer</strong>: <span data-i18n="onion_fert">~50 kg/Acre</span></li>
+                        <li><i class="fa-solid fa-calendar-days"></i> <strong data-i18n="label_growth">Growth</strong>: <span data-i18n="onion_growth">3-4 Months</span></li>
+                    </ul>
+                </div>
+                <div class="guide-card fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="guide-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+                    <h3 data-i18n="guide_jowar">Jowar & Bajra</h3>
+                    <p data-i18n="guide_jowar_desc">Hardy crops that thrive well with a solid base of <strong>Aged Cow Dung Compost</strong>.</p>
+                    <ul class="guide-details">
+                        <li><i class="fa-solid fa-cloud-sun"></i> <strong data-i18n="label_season">Season</strong>: <span data-i18n="jowar_season">Kharif & Rabi</span></li>
+                        <li><i class="fa-solid fa-droplet"></i> <strong data-i18n="label_water">Water</strong>: <span data-i18n="jowar_water">Low</span></li>
+                        <li><i class="fa-solid fa-flask"></i> <strong data-i18n="label_fert">Fertilizer</strong>: <span data-i18n="jowar_fert">~30 kg/Acre</span></li>
+                        <li><i class="fa-solid fa-calendar-days"></i> <strong data-i18n="label_growth">Growth</strong>: <span data-i18n="jowar_growth">3.5-4 Months</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about container section-padding">
+        <div class="about-flex">
+            <div class="about-img fade-in-right">
+                <img src="assets/images/about_farm.png" alt="Organic Farming">
+            </div>
+            <div class="about-text fade-in-left">
+                <h2 data-i18n="about_title">Our Mission for Greener Earth</h2>
+                <div class="underline" style="margin: 15px 0;"></div>
+                <p data-i18n="about_p1">At AgroSmart Organic, we believe that the future of farming lies in returning to nature, empowered by
+                    technology. We provide 100% natural, high-quality organic fertilizers to help farmers increase yield
+                    while protecting the environment.</p>
+                <p data-i18n="about_p2">Our AI-driven recommendation engine ensures that you pick the exact right nutrient for your specific
+                    crop and soil needs, eliminating guesswork and boosting productivity.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="feature_1">100% Organic Certified</span></li>
+                    <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="feature_2">AI-Powered Recommendations</span></li>
+                    <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="feature_3">Nationwide Delivery</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding" style="background-color: var(--light-green);">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 data-i18n="contact_title">Get in Touch</h2>
+                <p data-i18n="contact_desc">We're here to help your farm succeed.</p>
+                <div class="underline mx-auto"></div>
+            </div>
+            <div class="contact-wrapper mt-4">
+                <div class="contact-info fade-in-right">
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4 data-i18n="contact_loc">Location</h4>
+                            <p data-i18n="contact_loc_val">Shivraj apartments flat no :-608 Near Sinhgad College, isbm college and Near amigos gym , Shivneri boys hostel Ambegoan 411041 , pune .</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4 data-i18n="contact_phone">Phone</h4>
+                            <p data-i18n="contact_phone_val">+91 9834986078</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4 data-i18n="contact_email">Email</h4>
+                            <p data-i18n="contact_email_val">abhishekgarudkar39@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in-left"
+                    onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="How can we help you?" required></textarea>
+                    <button type="submit" class="btn btn-primary w-100" data-i18n="btn_send">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-seedling"></i> <span data-i18n="footer_brand">AgroSmart Organic</span></h3>
+                <p data-i18n="footer_desc">Empowering farmers with smart, organic solutions for a sustainable tomorrow.</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="quick_links">Quick Links</h4>
+                <a href="#home" data-i18n="nav_home">Home</a>
+                <a href="#products" data-i18n="nav_products">Shop</a>
+                <a href="#crop-guide" data-i18n="nav_guide">Crop Guide</a>
+            </div>
+            <div class="footer-social">
+                <h4 data-i18n="follow_us">Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer_copy">&copy; 2024 AgroSmart Organic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AI Smart Assistant Chatbot Widget -->
+    <div class="ai-chatbot-widget" id="aiChatbot">
+        <div class="chat-header" onclick="toggleChat()">
+            <div><i class="fa-solid fa-robot"></i> <span data-i18n="ai_assistant">AgroSmart AI Assistant</span></div>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot" data-i18n="bot_hello">
+                Hello! I am your AI Smart Assistant. Ask me about crops, fertilizers, or usage! (e.g., "Which fertilizer
+                is best for wheat?")
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="handleChatKeypress(event)">
+            <button onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- AI Bot Floating Action Button -->
+    <div class="ai-fab" id="aiFab" onclick="toggleChat()">
+        <i class="fa-solid fa-robot"></i>
+        <span class="pulse-ring"></span>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCart()">&times;</span>
+            <h2><i class="fa-solid fa-basket-shopping"></i> <span data-i18n="cart_title">Your Basket</span></h2>
+            <div id="cartItems" class="cart-items mt-4">
+                <!-- Cart items injected here -->
+            </div>
+            <div class="cart-summary mt-4">
+                <hr>
+                <div class="d-flex justify-between mt-2">
+                    <h3 data-i18n="cart_total">Total:</h3>
+                    <h3 id="cartTotal" style="color: var(--primary)">₹0</h3>
+                </div>
+
+                <div id="checkoutSection"
+                    style="display: none; margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+                    <h3 style="margin-bottom: 10px;" data-i18n="delivery">Delivery Details</h3>
+                    <input type="text" id="bName" placeholder="Full Name"
+                        style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <input type="text" id="bAddr" placeholder="Complete Address"
+                        style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <select id="bMethod"
+                        style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option value="upi">UPI / Scanner</option>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="card">Credit/Debit Card</option>
+                    </select>
+                    <button class="btn btn-primary w-100" onclick="processOrder()" data-i18n="btn_place_order">Place Order</button>
+                </div>
+
+                <button id="proceedBtn" class="btn btn-primary w-100 mt-4" onclick="showCheckout()" data-i18n="btn_proceed">Proceed to
+                    Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div id="orderSuccessModal" class="modal" style="align-items: center; justify-content: center;">
+        <div class="modal-content text-center"
+            style="animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; margin: auto;">
+            <div class="success-checkmark">
+                <div class="check-icon">
+                    <span class="icon-line line-tip"></span>
+                    <span class="icon-line line-long"></span>
+                    <div class="icon-circle"></div>
+                    <div class="icon-fix"></div>
+                </div>
+            </div>
+            <h2 style="color: var(--primary); margin: 20px 0;" data-i18n="order_success">Order Placed Successfully!</h2>
+            <p id="orderMsg" style="margin-bottom: 25px;"></p>
+            <button class="btn btn-primary" onclick="closeOrderSuccess(); openOrdersModal();" data-i18n="track_order">Track Your Order</button>
+        </div>
+    </div>
+
+    <!-- My Orders / Track Orders Modal -->
+    <div id="ordersModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeOrdersModal()">&times;</span>
+            <h2><i class="fa-solid fa-boxes-stacked"></i> <span data-i18n="order_title">My Orders</span></h2>
+            <div id="ordersContainer" class="mt-4" style="max-height: 50vh; overflow-y: auto;">
+                <!-- Orders injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
